@@ -1,1 +1,0 @@
-net share sharename="C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta" /grant:everyone,FULL
