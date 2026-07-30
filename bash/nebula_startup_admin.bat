@@ -1,0 +1,1 @@
+schtasks /create /tn "StartNebulaDelayed" /tr "net start nebula" /sc onstart /delay 0001:00 /ru SYSTEM /rl HIGHEST
