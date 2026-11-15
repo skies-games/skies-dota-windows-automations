@@ -1,6 +1,6 @@
 $nebulaDir = "C:\Users\$env:username\Desktop\nebula"
 $exePath = Join-Path $nebulaDir "nebula.exe"
-$configPath = Join-Path $nebulaDir "config.yml"
+$configPath = Join-Path $nebulaDir "config.yaml"
 
 $action = New-ScheduledTaskAction `
     -Execute $exePath `
