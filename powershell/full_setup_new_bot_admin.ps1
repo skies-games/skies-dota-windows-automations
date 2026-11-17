@@ -1,7 +1,8 @@
 # Full setup for a new bot machine. Run elevated.
-# Expects all listed scripts in the same directory as this file.
+# .ps1 steps live next to this file; .bat steps live in ../bash.
 $ErrorActionPreference = "Stop"
-$dir = $PSScriptRoot
+$psDir = $PSScriptRoot
+$bashDir = Join-Path (Split-Path $psDir -Parent) "bash"
 
 $steps = @(
     "initial_setup_admin.ps1",
@@ -14,6 +15,7 @@ $steps = @(
 )
 
 foreach ($name in $steps) {
+    $dir = if ($name -like "*.bat") { $bashDir } else { $psDir }
     $step = Join-Path $dir $name
     if (-not (Test-Path $step)) { throw "Missing: $step" }
     Write-Host "`n=== $name ===" -ForegroundColor Cyan
